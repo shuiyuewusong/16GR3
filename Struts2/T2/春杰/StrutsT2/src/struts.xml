@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<package name="usermanager" extends="struts-default">
+		<interceptors>
+			<interceptor name="myinterceptor" class="com.qhit.t2.Interceptor"></interceptor>
+		</interceptors>
+		<action name="login" class="com.qhit.t2.LoginAction">
+			<interceptor-ref name="timer"></interceptor-ref>
+			<interceptor-ref name="myinterceptor"></interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result name="success">/WEB-INF/jsp/success.jsp</result>
+			<result name="error">/WEB-INF/jsp/error.jsp</result>
+		</action>
+	</package>
+</struts>
