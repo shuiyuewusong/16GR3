@@ -1,0 +1,87 @@
+/**
+ * 
+ */
+package com.qhit.lh.gr3.cj.hb_t1.bean;
+
+/**
+ * @author 03春杰
+ * TODO
+ * 2017年12月11日上午9:29:48	
+ */
+public class User {
+	private int id;
+	private String uname;
+	private String upwd;
+	private String birthday;
+	private String sex;
+	private int enable;
+	public User(int id, String uname, String upwd, String birthday, String sex, int enable) {
+		super();
+		this.id = id;
+		this.uname = uname;
+		this.upwd = upwd;
+		this.birthday = birthday;
+		this.sex = sex;
+		this.enable = enable;
+	}
+	
+	public User(String uname, String upwd, String birthday, String sex, int enable) {
+		super();
+		this.uname = uname;
+		this.upwd = upwd;
+		this.birthday = birthday;
+		this.sex = sex;
+		this.enable = enable;
+	}
+
+	public User() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getUname() {
+		return uname;
+	}
+	public void setUname(String uname) {
+		this.uname = uname;
+	}
+	public String getUpwd() {
+		return upwd;
+	}
+	public void setUpwd(String upwd) {
+		this.upwd = upwd;
+	}
+	public String getBirthday() {
+		return birthday;
+	}
+	public void setBirthday(String birthday) {
+		this.birthday = birthday;
+	}
+	public String getSex() {
+		return sex;
+	}
+	public void setSex(String sex) {
+		this.sex = sex;
+	}
+	public int getEnable() {
+		return enable;
+	}
+	public void setEnable(int enable) {
+		this.enable = enable;
+	}
+	
+	
+	
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", uname=" + uname + ", upwd=" + upwd + ", birthday=" + birthday + ", sex=" + sex
+				+ ", enable=" + enable + "]";
+	}
+	
+	
+}
