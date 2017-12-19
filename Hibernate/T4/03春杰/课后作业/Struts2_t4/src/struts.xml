@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+
+<struts>
+	<package name="usermanager" namespace="/" extends="struts-default">
+		<action name="addUser" class="com.qhit.lh.gr3.cj.t4.action.UserAction" method="addUser">
+			<result name="success">/jsp/test.jsp</result>
+			<result name="error">index.jsp</result>
+		</action>
+	</package>    
+</struts>
