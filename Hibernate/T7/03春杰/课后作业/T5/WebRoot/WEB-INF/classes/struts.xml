@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<!-- 启用自动动态方法的调用 -->
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+	<!-- 全局配置 -->
+	<package name="default" namespace="/" extends="struts-default">
+		<global-results>
+			<result name="error">/WEB-INF/jsp/error.jsp</result>
+		</global-results>
+		<global-exception-mappings>
+			<exception-mapping exception="java.lang.Exception"
+				result="error" />
+		</global-exception-mappings>
+	</package>
+	<!-- 模块化管理包 -->
+	<package name="usermanager" extends="default">
+		<action name="*User" class="com.qhit.lh.gr3.cj.t5.action.UserAction"
+			method="{1}">
+			<result name="listUser">listUser.jsp</result>
+			<result name="toAll" type="redirectAction">getAllUser</result>
+			<result name="toUpdate">/jsp/updateUser.jsp</result>
+		</action>
+	</package>
+</struts>
