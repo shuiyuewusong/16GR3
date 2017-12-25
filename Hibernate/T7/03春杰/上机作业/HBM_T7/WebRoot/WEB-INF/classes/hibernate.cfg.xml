@@ -22,8 +22,8 @@
 		</property>
 		<property name="show_sql">true</property>
 		<property name="format_sql">true</property>
-		<mapping resource="com/qhit/lh/gr3/cj/t6/bean/Role.hbm.xml" />
-		<mapping resource="com/qhit/lh/gr3/cj/t6/bean/User.hbm.xml" />
+		<mapping resource="com/qhit/lh/gr3/cj/t7/bean/Role.hbm.xml" />
+		<mapping resource="com/qhit/lh/gr3/cj/t7/bean/User.hbm.xml" />
 
 	</session-factory>
 
