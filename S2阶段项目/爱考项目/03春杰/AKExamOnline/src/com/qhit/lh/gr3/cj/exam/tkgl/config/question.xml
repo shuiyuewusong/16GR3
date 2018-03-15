@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+    <package name="question" namespace="/question" extends="default">
+
+        <action name="question_*" class="com.qhit.lh.gr3.cj.exam.tkgl.action.QuestionAction" method="{1}">
+        	<interceptor-ref name="loginInterceptor"></interceptor-ref>
+        	<interceptor-ref name="defaultStack"></interceptor-ref>
+        	<result name="listCourse" >/jsp/questionsManage.jsp</result>
+        	<result name="listWritten" >/jsp/writtenQuestionList.jsp</result>
+        	<result name="addWrittenQuestion">/jsp/closeDialog.jsp</result>
+        	<result name="updateWrittenQuestion">/jsp/closeDialog.jsp</result>
+        	<!-- 请求转发，保留参数课程对象 -->
+        	<result name="getWrittenQuestionById" type="dispatcher">
+        		/jsp/updateWrittenQuestion.jsp
+        	</result>
+        	<!-- 在Result中配置请求重定向到action请求，并添加参数 -->
+        	<result name="inportWrittenQuestions" type="redirectAction">
+        		<param name="namespace">/question</param>
+        		<param name="actionName">question_getWrittenList</param>
+        		<param name="course.csId">${course.csId }</param>
+        		<param name="course.csName">${course.csName}</param>
+        	</result>
+        	<result name="getQuestionMax" type="json">
+        		<!-- 取消浏览器缓存 -->
+				<param name="noCache">true</param>
+				<!-- 设置服务器响应类型 -->
+				<param name="contentType">application/json</param>
+				<!-- JSON数据 -->
+				<param name="includeProperties">
+					radioEasyMax,radioNormalMax,radioDiffMax,cbEasyMax,cbNormalMax,cbDiffMax
+				</param>
+        	</result>
+        	<result name="getQuestionList" type="json">
+        		<!-- 取消浏览器缓存 -->
+				<param name="noCache">true</param>
+				<!-- 设置服务器响应类型 -->
+				<param name="contentType">application/json</param>
+				<!-- JSON数据 -->
+				<param name="root">
+					pageBean
+				</param>
+        	</result>
+        </action>
+    </package>
+</struts>

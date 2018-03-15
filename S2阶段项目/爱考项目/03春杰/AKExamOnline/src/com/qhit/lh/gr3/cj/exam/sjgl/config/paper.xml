@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+    <package name="paper" namespace="/paper" extends="default">
+
+        <action name="paper_*" class="com.qhit.lh.gr3.cj.exam.sjgl.action.PaperAction" method="{1}">
+        	<interceptor-ref name="loginInterceptor"></interceptor-ref>
+        	<interceptor-ref name="defaultStack"></interceptor-ref>
+        	<result name="listPaper">/jsp/paperManage.jsp</result>
+        	<result name="createRandom">/jsp/closeDialog.jsp</result>
+        	<result name="endExam" type="redirectAction">
+        		<param name="namespace">/paper</param>
+        		<param name="actionName">paper_getPaperList</param>
+			</result>
+        	<result name="startExam">/jsp/closeDialog.jsp</result>
+        </action>
+    </package>
+</struts>
